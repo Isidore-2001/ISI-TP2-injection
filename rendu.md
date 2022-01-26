@@ -19,7 +19,7 @@ Nom, Prénom, email: ___
 
 ## Question 3
 
-* Votre commande curl pour effacer la table
+* Votre commande curl qui va permettre de rajouter une entree en mettant un contenu arbutraire dans le champ 'who'
 
 * Expliquez comment obtenir des informations sur une autre table
 

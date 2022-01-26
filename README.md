@@ -59,6 +59,24 @@ Le module `cherrypy` est un framework d'applications Web en python, le module `m
 
 ### Création de la table MySQL
 
+Si vous utilisez une machine virtuelle Cloud de l'université, vous devez
+installer le serveur mysql (en root) avec:
+
+```
+# apt install mysql-server
+```
+
+puis ensuite créer une base de données et un utilisateur:
+```
+# mysql
+mysql> CREATE DATABASE isitp2;
+mysql> CREATE USER 'isitp2'@'localhost' IDENTIFIED BY 'choisissezUnMotDePasse';
+mysql> GRANT ALL PRIVILEGES ON isitp2.* TO 'isitp2'@'localhost';
+
+```
+
+
+
 Pour créer la table qui servira à l'application, connectez vous à votre base de données MySQL avec l'outil de votre choix, et créez la table suivante:
 
 ```
@@ -98,6 +116,11 @@ Si cela fonctionne, vous aurez une ligne du type:
 ```
 
 Vous devrez garder ce terminal ouvert pendant toute l'utilisation du serveur. Pour le stopper, faites un Ctrl-C dans le terminal où vous l'avez lancé.
+
+Si vous utilisez une machine virtuelle Cloud de l'université, vous devrez vous devrez créer un tunnel SSH pour pouvoir acceder a l'application vulnérable depuis votre navigateur de salle de TP:
+```
+$ ssh <votre utilisateur VM>@<votre IP de VM> -L 8080:127.0.0.1:8080
+```
 
 Ensuite, allez sur `http://localhost:8080` avec votre navigateur, et testez le fonctionnement de la page. Notamment:
  * Testez l'ajout d'une donnée via le formulaire, et vérifiez qu'elle est rajoutée en base de donnée
