@@ -10,6 +10,7 @@ class VulnerableApp(object):
 
     @cherrypy.expose
     def index(self, **post):
+        cherrypy.response.cookie["ExempleCookie"] = "Valeur du cookie"
         cursor = self.conn.cursor()
         if cherrypy.request.method == "POST":
             requete = "INSERT INTO chaines (txt,who) VALUES('" + post["chaine"] + "','" + cherrypy.request.remote.ip + "')"
