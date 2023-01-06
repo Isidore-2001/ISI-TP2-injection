@@ -60,15 +60,15 @@ Le module `cherrypy` est un framework d'applications Web en python, le module `m
 ### Création de la table MySQL
 
 Si vous utilisez une machine virtuelle Cloud de l'université, vous devez
-installer le serveur mysql (en root) avec:
+installer le serveur mysql avec:
 
 ```
-# apt install mysql-server
+sudo apt install mysql-server
 ```
 
 puis ensuite créer une base de données et un utilisateur:
 ```
-# mysql
+sudo mysql
 mysql> CREATE DATABASE isitp2;
 mysql> CREATE USER 'isitp2'@'localhost' IDENTIFIED BY 'choisissezUnMotDePasse';
 mysql> GRANT ALL PRIVILEGES ON isitp2.* TO 'isitp2'@'localhost';
@@ -77,7 +77,15 @@ mysql> GRANT ALL PRIVILEGES ON isitp2.* TO 'isitp2'@'localhost';
 
 
 
-Pour créer la table qui servira à l'application, connectez vous à votre base de données MySQL avec l'outil de votre choix, et créez la table suivante:
+Connectez vous à votre base de données MySQL comme ceci:
+
+
+```
+mysql -p -u isitp2 isitp2
+Enter password: [tapez ici le mot de passe que vous avez choisi]
+```
+
+Une fois l'invite "mysql>" affiché, entrez la commande suivante pour créer la table:
 
 ```
 CREATE TABLE chaines (
@@ -88,8 +96,13 @@ CREATE TABLE chaines (
 );
 ```
 
-### Configuration de l'accès à la base de données
+Vous devirez voir la réponse suivante:
+```
+Query OK, 0 rows affected (0.06 sec)
+```
 
+### Configuration de l'accès à la base de données
+i
 Renommez (ou copiez) le fichier de configuration de base de données `config.py.sample` en `config.py` et éditez le pour y mettre les informations d'accès à votre base MySQL.
 
 Etant donné que le fichier `config.py` contient le mot de passe de votre serveur MySQL, vous prendez garde à ne pas le commit sur votre dépôt git (vous pouvez, par exemple, l'ajouter au `.gitignore`).
@@ -167,7 +180,7 @@ Essayez d'insérer dans la base de données des chaines qui comportent des carac
 
 En utilisant `curl`, et si besoin après avoir révisé le cours sur les injections SQL, réalisez une injection SQL qui insérer une chaine dans la base de données, tout en faisant en sorte que le champ `who` soit rempli avec ce que vous aurez décidé (et non pas votre adresse IP). Verifiez que cela a fonctionné ensuite.
 
-L'exploitation d'injections SQL n'est pas limitée à la destruction de données. En supposant l'existence d'une autre table dans la base, imaginez un moyen d'utiliser cette faille d'injection SQL pour obtenir des informations sur les données de cette autre table (il n'est pas demandé de l'implémenter, mais d'expliquer une approche envisageable)
+L'exploitation d'injections SQL n'est pas limitée à la corruption de données. En supposant l'existence d'une autre table dans la base, imaginez un moyen d'utiliser cette faille d'injection SQL pour obtenir des informations sur les données de cette autre table (il n'est pas demandé de l'implémenter, mais d'expliquer une approche envisageable)
 
 #### Question 4 : Corriger l'application vulnérable 
 
