@@ -22,7 +22,7 @@ Dans ce dépôt, vouz trouverez le fichier `serveur.py` contenant le source pyth
 
 Un environnement virtuel Python3 est une sorte d'installation indépendante et auto-suffisante de Python3, qui sera placée dans votre dossier personnel, et dans laquelle vous pouvez installer des modules Python3 sans avoir besoin des droits root, ni de toucher au reste du système.
 
-Si vous travaillez avec votre propre machine, assurez vous d'abord d'avoir installé l'outil de création d'environnement virtuel (sous Ubuntu/Debian: `sudo  apt install python3-venv`)
+Si vous travaillez avec votre propre machine, assurez vous d'abord d'avoir installé l'outil de création d'environnement virtuel (sous Ubuntu/Debian: `sudo apt-get update && sudo apt install python3-venv`)
 
 Ensuite, préparez l'environnement virtuel avec la commande suivante (où `<nom de dossier>` est à remplacer par le nom du dossier qui contiendra votre environnement virtuel)
 
